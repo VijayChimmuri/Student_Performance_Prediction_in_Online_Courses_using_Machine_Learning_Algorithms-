@@ -1,0 +1,101 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;}
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input,textarea{
+			font-family:Aldrich;
+			font-size:15px;
+			}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style4 {color: #FFFF00; font-weight: bold; }
+        .style5 {color: #FF0000; font-weight: bold; font-style: italic; }
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form action="{% url 'Add_DataSet_Details' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}<span class="style5">Browse Online Courses Data Set</span>
+              <input type="file"
+                   title="Upload excel file"
+                   name="excel_file"
+                   style="border: 1px solid black; padding: 5px;"
+                   required="required">
+            <p>
+            <input type="submit"
+                   value="Upload"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+        </form>
+
+        <p></p>
+
+
+        <hr><fieldset><form role="form" method="POST" >
+                    <table border="5" bordercolor="#FF00FF">
+                      <tr><td bgcolor="#FF0000"><span class="style8">Student Name</span></td>
+                      <td bgcolor="#FF0000"><span class="style8">Enrollment No</span></td>
+                      <td bgcolor="#FF0000"><span class="style8">Gender</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Contact No</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Course Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Degree Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">College Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">University Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Online Course Media</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Conducted Classes</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Attended Classes</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Diagnostic Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Formative Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Interim Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Summative Assessments Grade</span></td>
+
+                      </tr>
+
+
+        {% for row in excel_data %}
+<tr>
+            {% for cell in row %}
+                     <td>   {{ cell }}&nbsp;&nbsp&nbsp;&nbsp;
+            {% endfor %}
+
+            <br></td></tr>
+        {% endfor %}
+                  </table>
+
+{{obj}}
+
+						</fieldset>
+					</form>
+				</div>
+
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

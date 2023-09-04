@@ -1,0 +1,132 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style4 {color: #FFFF00; font-weight: bold; }
+        .style5 {color: #FFFF00}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                    <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">SEARCH STUDENT DATA DETAILS !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center"><span class="style4 style2">Enter Student Name Or College Name,Enroll No as Keyword Here </span></div></td>
+                                    <td width="269"><input type="text" name="keyword" ></td>
+                                  </tr>
+  <td><p>&nbsp; </p>
+          <p>
+            <input name="submit" type="submit" class="style1" value="Search">
+        </p></td>
+  </tr>
+                                </table>
+						 </fieldset>
+				  </form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">STUDENT PERFORMANCE PREDICTION :: {{ratio}}% </p>
+                            <hr>
+                            <div class="tweettext">
+                                <table border="5" bordercolor="#FF00FF">
+                      <tr><td bgcolor="#FF0000"><span class="style8">Student Name</span></td>
+                      <td bgcolor="#FF0000"><span class="style8">Enrollment No</span></td>
+                      <td bgcolor="#FF0000"><span class="style8">Gender</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Contact No</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Semester</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Degree Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">College Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">University Name</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Online Course Media</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Conducted Classes</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Attended Classes</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Diagnostic Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Formative Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Interim Assessments Grade</span></td>
+                          <td bgcolor="#FF0000"><span class="style8">Summative Assessments Grade</span></td>
+
+                      </tr>
+                            {% for object in objs %}
+                      <tr>
+                                        <td style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.names}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px;  "><div align="center">{{object.Enrollment_No}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Gender}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Contact_No}}</div></td>
+                                         <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Course_Name}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Degree_Name}}</div></td>
+                                        <td  bgcolor="#FF00FF" style="font-family:monospace; font-size:19px; "><div align="center">{{object.College_Name}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.university_Name}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Online_Course_Media}}</div></td>
+                                        <td bgcolor="#FF0000" style="font-family:monospace; font-size:19px; "><div align="center">{{object.Conducted_Class}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Attended_Class}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Diagnostic_Assessments_Grade}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Formative_Assessments_Grade}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Interim_Assessments_Grade}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Summative_Assessments_Grade}}</div></td>
+
+
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

@@ -1,0 +1,66 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style5 {color: #FFFFFF}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1"><marquee behavior="alternate"">VIEW ALL SEARCHED RATIO DETAILS BY K-Neareast Neighbour(KNN)</marquee></p>
+                            <hr>
+ 					<div class="userdetails">
+                   <table border="0" align="center" bordercolor="#FF00FF">
+                      <tr><td width="200" bgcolor="#FF0000"><div align="center" class="style6 style5"><span class="style8"><em><strong>KEYWORD</strong></em></span></div></td>
+                      <td width="255" bgcolor="#FF0000"><div align="center" class="style6 style5"><em><strong>RATIO</strong></em></div></td>
+                      </tr>
+                            {% for object in list_objects %}
+                      <tr>
+                                          <td style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.names}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.ratio}}</div></td>
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
