@@ -1,3 +1,3 @@
 Student Performance Prediction in Online Courses using Machine Learning Algorithm
 
-Student performance is a key indicator of measuring learning progress in a virtual learning environment. Researchers have adopted various methods to monitor performance.
+Student performance is a key indicator of measuring learning progress in a virtual learning environment. Researchers have adopted various methods to monitor performances.
